@@ -200,6 +200,11 @@ const Navbar = () => {
                 </div>
               </div>
             </li>
+            <li>
+              <Link to="/contact" title="Liên Hệ">
+                Liên Hệ
+              </Link>
+            </li>
             {/* <p
               style={{
                 display: "flex",
