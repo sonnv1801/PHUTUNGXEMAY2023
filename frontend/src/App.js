@@ -30,6 +30,8 @@ import ListProductSupplier from "./pages/admin/listproductsupplier/ListProductSu
 import UpdateProductSupplier from "./pages/admin/updateproductsupplier/UpdateProductSupplier";
 import Statistics from "./pages/admin/statistics/Statistics";
 import PrintInvoice from "./pages/home/printInvoice/PrintInvoice";
+import Footer from "./pages/home/footer/Footer";
+import EditComboPage from "./pages/admin/editcombopage/EditComboPage";
 function App() {
   const user = JSON.parse(localStorage.getItem("token"));
   return (
@@ -86,6 +88,7 @@ function App() {
                 element={<ListProductSupplier />}
               />
               <Route path="/list-combos" element={<TypeCombos />} />
+              <Route path="/edit-combos/:id" element={<EditComboPage />} />
               <Route path="/order-customer" element={<OrderCustomer />} />
               <Route
                 path="/list-products-admin/:id"
@@ -108,6 +111,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           )}
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

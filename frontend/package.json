@@ -15,8 +15,10 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.3.0-alpha3",
     "chart.js": "^4.2.1",
+    "diacritic": "^0.0.2",
     "firebase": "^9.11.0",
     "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "qrcode.react": "^3.1.0",
@@ -34,6 +36,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "sweetalert2": "^11.7.12",
+    "unorm": "^1.6.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

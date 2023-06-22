@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import numeral from "numeral";
 import "./style.css";
-export default function ImgMediaCard({ item }) {
+export default function ImgMediaCardComBo({ item }) {
   console.log(item, "item");
   return (
     <Card
@@ -25,19 +25,19 @@ export default function ImgMediaCard({ item }) {
           component="div"
           className="title-prd"
         >
-          {item?.name}
+          {item?.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <p className="code-product">{item?.productCode}</p>
+          <p className="code-product">{item?.link}</p>
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
           <div id="priceandstatus">
-            <p className="code-product">{`${numeral(item.retailPrice).format(
+            <p className="code-product">{`${numeral(item.newPrice).format(
               "0,0"
             )}đ`}</p>
             <span className="code-product">
-              {item?.quantityDelivered === 0 ? "Hết Hàng" : "Còn Hàng"}
+              {item?.quantity === 0 ? `Hết Hàng` : `Còn ${item?.quantity} Cái`}
             </span>
           </div>
         </Typography>

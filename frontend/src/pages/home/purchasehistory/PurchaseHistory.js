@@ -4,7 +4,7 @@ import CustomizedBreadcrumbs from "../../../components/customizedBreadcrumbs/Cus
 import "./style.css";
 import Button from "@mui/material/Button";
 import numeral from "numeral";
-
+import Logo from "../../../assets/logo.jpg";
 const PurchaseHistory = ({ customerId }) => {
   const [orders, setOrders] = useState([]);
   const [selectedCombo, setSelectedCombo] = useState(null);
@@ -71,7 +71,8 @@ const PurchaseHistory = ({ customerId }) => {
             }
   
             .company-logo {
-              max-width: 200px;
+              max-width: 96px;
+              border-radius: 1rem;
               height: auto;
               display: block;
               margin: 0 auto;
@@ -167,15 +168,15 @@ const PurchaseHistory = ({ customerId }) => {
         </head>
         <body>
           <div class="invoice-container">
-            <img class="company-logo" src="path/to/company-logo.png" alt="Company Logo">
-            <h1 class="company-name">Tên công ty</h1>
+            <img class="company-logo" src= "${Logo}" alt="Company Logo">
+            <h1 class="company-name">PHỤ TÙNG XE MÁY QUỐC ANH</h1>
+            <p class="company-name">Hóa Đơn Của Bạn</p>
             ${orders
               .map(
                 (order, index) => `
               <div class="bill-header">
                 <div class="bill-info">
                   <h2>Đơn hàng: ${index + 1}</h2>
-                  <p>Đơn hàng ID: ${order._id}</p>
                 </div>
                
               </div>
@@ -190,9 +191,13 @@ const PurchaseHistory = ({ customerId }) => {
                         <div class="product-details">
                           <h3>${product.title}</h3>
                           <p>Số lượng đặt: ${product.quantity_cart}</p>
+                          <p>Giá: ${numeral(product.newPrice).format(
+                            "0,0"
+                          )}đ</p>
                         </div>
+                      
                         <div class="product-price">${numeral(
-                          product.newPrice
+                          product.quantity_cart * product.newPrice
                         ).format("0,0")}đ</div>
                       </li>
                     `;
@@ -211,6 +216,7 @@ const PurchaseHistory = ({ customerId }) => {
                         <div class="product-details">
                           <h3>${combo.comboName}</h3>
                           <p>Số lượng: ${combo.quantity}</p>
+                          <p>Giá:${numeral(combo.subtotal).format("0,0")}đ</p>
                         </div>
                         <div class="product-price">${numeral(
                           combo.subtotal * combo.quantity
@@ -248,6 +254,12 @@ const PurchaseHistory = ({ customerId }) => {
             <div className="sub-body-history">
               <div className="title-history">
                 <h2>Các đơn Phụ tùng</h2>
+                <Button
+                  variant="contained"
+                  onClick={() => handlePrintInvoice(orders, totalOrderPrice)}
+                >
+                  In hóa đơn
+                </Button>
               </div>
               <div className="prd-history">
                 <div className="row">
@@ -380,68 +392,6 @@ const PurchaseHistory = ({ customerId }) => {
                         <hr />
                       </div>
                     ))}
-                    {/* {orders.map((order) => (
-                    <div>
-                      <p> Tất cả sản phẩm có trong combo:</p>
-
-                      <div className="prd-history">
-                        <div className="row">
-                          <div className="col-2">
-                            <label>Hình Ảnh</label>
-                          </div>
-                          <div className="col-2">
-                            <label>Sản phẩm</label>
-                          </div>
-                          <div className="col-2">
-                            <label>Mã sản phẩm</label>
-                          </div>
-                          <div className="col-2">
-                            <label>Số lượng</label>
-                          </div>
-                          <div className="col-2">
-                            <label>Giá</label>
-                          </div>
-                          <div className="col-2">
-                            <label>Tổng Tiền</label>
-                          </div>
-                        </div>
-                      </div>
-                      {order.combos.map((product) => (
-                        <div
-                          style={{ padding: "1.5rem 0" }}
-                          key={product.productId}
-                        >
-                          <div className="row">
-                            <div className="col-2">
-                              <label style={{ width: "50px", height: "50px" }}>
-                                <img
-                                  src={product.image}
-                                  alt={product.name}
-                                  style={{ width: "100%" }}
-                                />
-                              </label>
-                            </div>
-                            <div className="col-2">
-                              <label>{product.name}</label>
-                            </div>
-                            <div className="col-2">
-                              <label>{product.productCode}</label>
-                            </div>
-                            <div className="col-2">
-                              <label>{product.quantity}</label>
-                            </div>
-                            <div className="col-2">
-                              <label>{product.price}</label>
-                            </div>
-                            <div className="col-2">
-                              <label>{product.total}</label>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                      <hr />
-                    </div>
-                  ))} */}
                   </div>
                 ))}
               </div>
@@ -461,12 +411,6 @@ const PurchaseHistory = ({ customerId }) => {
           </div>
         )}
       </div>
-      <Button
-        variant="contained"
-        onClick={() => handlePrintInvoice(orders, totalOrderPrice)}
-      >
-        In hóa đơn
-      </Button>
     </>
   );
 };

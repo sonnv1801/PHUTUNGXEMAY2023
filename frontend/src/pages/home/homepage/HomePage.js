@@ -14,9 +14,6 @@ export const HomePage = () => {
           chăng.
         </p>
       </main>
-      <footer>
-        <p>Bản quyền © 2023 Shop Phụ Tùng Xe Máy</p>
-      </footer>
     </div>
   );
 };
