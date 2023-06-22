@@ -266,7 +266,6 @@ export const CardHorizontal = (cart) => {
         order.products = carts.map((cart) => ({
           id: cart.id,
           code: cart.code,
-          status: cart.status,
           title: cart.title,
           image: cart.image,
           newPrice: cart.newPrice,
@@ -333,6 +332,25 @@ export const CardHorizontal = (cart) => {
             setTimeout(() => {
               refreshPage();
             }, 500);
+
+            // Increment the quantityPurchased field for each product
+            order.products.forEach(async (product) => {
+              try {
+                const response = await axios.post(
+                  `http://localhost:8000/v1/order/products/buy/${product.id}`,
+                  {
+                    quantity:
+                      (product.quantityPurchased || 0) + product.quantity_cart,
+                  }
+                );
+                console.log(
+                  "QuantityPurchased updated successfully:",
+                  response.data
+                );
+              } catch (error) {
+                console.error("Error updating quantityPurchased:", error);
+              }
+            });
           })
           .catch((error) => {
             // Xử lý lỗi (nếu có)

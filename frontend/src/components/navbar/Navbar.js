@@ -200,7 +200,7 @@ const Navbar = () => {
                 </div>
               </div>
             </li>
-            <p
+            {/* <p
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -222,7 +222,7 @@ const Navbar = () => {
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
-            </p>
+            </p> */}
           </ul>
           <ul>
             <li>
@@ -267,7 +267,7 @@ const Navbar = () => {
                                   <b>{item?.code}</b>
                                 </div>
                                 <div className="col-4">
-                                  <h6>{item?.status}</h6>
+                                  <h6>Còn Hàng</h6>
                                   <h6>{`${numeral(item?.newPrice).format(
                                     "0,0"
                                   )}đ`}</h6>
@@ -399,7 +399,7 @@ const Navbar = () => {
                           </Typography>
                         </MenuItem>
                       </Link>
-                      <Link
+                      {/* <Link
                         to="/orderpage"
                         style={{ color: "black", textDecoration: "none" }}
                       >
@@ -408,8 +408,8 @@ const Navbar = () => {
                             Đơn hàng nhà cung cấp!
                           </Typography>
                         </MenuItem>
-                      </Link>
-                      <Link
+                      </Link> */}
+                      {/* <Link
                         to="/cart-supplier"
                         style={{ color: "black", textDecoration: "none" }}
                       >
@@ -418,7 +418,7 @@ const Navbar = () => {
                             Lên Đơn Hàng
                           </Typography>
                         </MenuItem>
-                      </Link>
+                      </Link> */}
                       <MenuItem onClick={handlelogout}>
                         <Typography textAlign="center">Đăng xuất</Typography>
                       </MenuItem>
@@ -428,6 +428,7 @@ const Navbar = () => {
                     <Link
                       to="/admin"
                       style={{ color: "black", textDecoration: "none" }}
+                      onClick={refreshPage}
                     >
                       <MenuItem>
                         <Typography textAlign="center">Admin</Typography>

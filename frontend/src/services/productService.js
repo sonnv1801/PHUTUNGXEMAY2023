@@ -3,10 +3,10 @@ const API = "http://localhost:8000/v1/product";
 
 export class ProductService {
   getPrdByType(type, limit) {
-    return Axios.get(`${API}/products/${type}/${limit}`);
+    return Axios.get(`http://localhost:8000/v1/order/products/${type}`);
   }
   getDetail(id) {
-    return Axios.get(`${API}/${id}`);
+    return Axios.get(`http://localhost:8000/v1/order/products/byid/${id}`);
   }
   getAllProduct() {
     return Axios.get(API);

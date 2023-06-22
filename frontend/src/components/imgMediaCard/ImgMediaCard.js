@@ -25,15 +25,15 @@ export default function ImgMediaCard({ item }) {
           component="div"
           className="title-prd"
         >
-          {item?.title}
+          {item?.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <p className="code-product">{item?.code}</p>
+          <p className="code-product">{item?.productCode}</p>
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
           <div id="priceandstatus">
-            <p className="code-product">{`${numeral(item.newPrice).format(
+            <p className="code-product">{`${numeral(item.retailPrice).format(
               "0,0"
             )}đ`}</p>
             <span className="code-product">{item?.status}</span>

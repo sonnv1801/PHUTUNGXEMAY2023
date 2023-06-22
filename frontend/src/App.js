@@ -28,6 +28,8 @@ import { OrderCustomer } from "./pages/admin/ordercustomer/OrderCustomer";
 import TypeSupplier from "./pages/admin/typesupplier/TypeSupplier";
 import ListProductSupplier from "./pages/admin/listproductsupplier/ListProductSupplier";
 import UpdateProductSupplier from "./pages/admin/updateproductsupplier/UpdateProductSupplier";
+import Statistics from "./pages/admin/statistics/Statistics";
+import PrintInvoice from "./pages/home/printInvoice/PrintInvoice";
 function App() {
   const user = JSON.parse(localStorage.getItem("token"));
   return (
@@ -39,7 +41,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/shop/:id" element={<Shop />} />
           <Route path="/shopcombo/:id" element={<ShopCombo />} />
-          <Route path="/shopsupplier/:id" element={<ShopSupplier />} />
+          {/* <Route path="/shopsupplier/:id" element={<ShopSupplier />} /> */}
           <Route path="/shop/product-dt/:id" element={<ProductDetail />} />
           <Route path="/shop/product-dt/cart" element={<Cart />} />
           <Route
@@ -50,7 +52,7 @@ function App() {
             path="/shop/product-dt-supplier/:id"
             element={<ProductDetailSupplier />}
           />
-          <Route path="/cart-supplier" element={<CartPage />} />
+          {/* <Route path="/cart-supplier" element={<CartPage />} /> */}
           <Route path="/login" element={<Login />} />
 
           <Route path="/" element={<HomePage />} />
@@ -62,7 +64,8 @@ function App() {
           ) : (
             <>
               <Route path="/history" element={<PurchaseHistory />} />
-              <Route path="/orderpage" element={<OrderPage />} />
+              <Route path="/printInvoice" element={<PrintInvoice />} />
+              {/* <Route path="/orderpage" element={<OrderPage />} /> */}
             </>
           )}
 
@@ -70,6 +73,10 @@ function App() {
 
           {user?.role === true ? (
             <>
+              <Route path="/cart-supplier" element={<CartPage />} />
+              <Route path="/statistics" element={<Statistics />} />
+              <Route path="/shopsupplier/:id" element={<ShopSupplier />} />
+              <Route path="/orderpage" element={<OrderPage />} />
               <Route path="/admin" element={<HomePageAdmin />} />
               <Route path="/delivery" element={<Delivery />} />
               <Route path="/list-types" element={<Type />} />
