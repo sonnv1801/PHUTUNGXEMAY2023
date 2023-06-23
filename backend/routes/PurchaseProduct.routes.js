@@ -14,4 +14,6 @@ router.post(
   purchaseProductController.purchaseProductQuantity
 );
 router.get("/api/products", purchaseProductController.getAllProductsByOrder);
+
+router.get("/orders/products", purchaseProductController.getAllProductToOrder);
 module.exports = router;

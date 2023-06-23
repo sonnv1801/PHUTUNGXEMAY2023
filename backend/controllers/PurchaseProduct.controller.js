@@ -295,6 +295,26 @@ const purchaseProductController = {
       res.status(500).json({ error: "Internal Server Error" });
     }
   },
+
+  getAllProductToOrder: async (req, res) => {
+    try {
+      // Tìm tất cả các đơn hàng
+      const orders = await Order.find();
+
+      let allProducts = [];
+
+      // Lặp qua các đơn hàng và thu thập danh sách sản phẩm
+      orders.forEach((order) => {
+        allProducts = allProducts.concat(order.products);
+      });
+
+      // Trả về danh sách sản phẩm từ tất cả các đơn hàng
+      res.json(allProducts);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Đã xảy ra lỗi server" });
+    }
+  },
 };
 
 module.exports = purchaseProductController;
