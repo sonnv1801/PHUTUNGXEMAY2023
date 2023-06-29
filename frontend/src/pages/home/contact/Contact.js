@@ -49,17 +49,16 @@ function Contact() {
                   </svg>
                 </div>
                 <div className=" cursor-pointer">
-                  <a href="">Bạn mới đến Phòng khám CliLab?​</a>
+                  <a href="#!">Cửa hàng kinh doanh phụ Tùng xe máy</a>
                 </div>
               </div>
               <div className="border-t-[1px] border-white">
                 <div className="w-[80%] m-8 text-[14px] ">
                   <p className="cursor-pointer">
-                    Để đặt lịch tư vấn hoặc tìm hiểu thêm về bất kỳ phương pháp
-                    điều trị nào của chúng tôi{" "}
+                    Để đặt lịch tư vấn hoặc tìm hiểu thêm
                     <a
                       className="border-b-[1px] font-medium  border-gray-400"
-                      href=""
+                      href="#!"
                     >
                       Đặt lịch tư vấn
                     </a>{" "}
@@ -86,18 +85,17 @@ function Contact() {
                   </svg>
                 </div>
                 <div className=" cursor-pointer">
-                  <a href="">Đã là bệnh nhân của CliLab?​</a>
+                  <a href="#!">Đã đã mua hàng ở của hàng tôi?​</a>
                 </div>
               </div>
               <div className="border-t-[1px] border-white">
                 <div className="w-[80%] m-12 text-[14px] ">
                   <p className="cursor-pointer">
-                    Nếu bạn có bất kỳ câu hỏi nào, cần đặt trước hoặc hủy bỏ một
-                    điều trị.
+                    Nếu bạn có bất kỳ câu hỏi nào, cần đặt trước
                     <br />
                     <a
                       className="border-b-[1px] font-medium  border-gray-400"
-                      href=""
+                      href="#!"
                     >
                       Vui lòng gọi: 19002297
                     </a>{" "}
@@ -124,7 +122,7 @@ function Contact() {
                   </svg>
                 </div>
                 <div lassName=" cursor-pointer">
-                  <a href=""> Các câu hỏi thường gặp​</a>
+                  <a href="#!"> Các câu hỏi thường gặp​</a>
                 </div>
               </div>
               <div className="border-t-[1px] border-white">
@@ -134,10 +132,10 @@ function Contact() {
                     <br />
                     <a
                       className="border-b-[1px] font-medium  border-gray-400"
-                      href=""
+                      href="#!"
                     >
                       {" "}
-                      Xem Câu hỏi thường gặp về CliLab{" "}
+                      Xem Câu hỏi thường gặp về Phụ tùng xe máy{" "}
                     </a>{" "}
                   </p>
                 </div>
@@ -169,8 +167,8 @@ function Contact() {
                     Làm thế nào để tìm thấy chúng tôi
                   </strong>
                   <p className="w-[50%]">
-                    Phòng khám đa khoa CiLab tọa lạc tại: 64 đường số 2, KDC Him
-                    Lam, Phường Tân Hưng, Quận 7, Thành phố Hồ Chí Minh
+                    160 Dương Tử Giang , phường 12, Quận 5, Thành phố Hồ Chí
+                    Minh
                   </p>
                 </div>
 
@@ -179,8 +177,8 @@ function Contact() {
                 <div className="ml-4 flex">
                   <strong className="w-[50%]">Truy cập vào bãi đậu xe</strong>
                   <p className="w-[50%]">
-                    Bãi đậu xe của Phòng khám Y tế CiLab đã được di dời về phía
-                    bắc của tòa nhà.
+                    Bãi đậu xe của Cửa hàng kinh doanh phụ Tùng xe máy Honda
+                    Quốc Nguyên đã được di dời về phía bắc của tòa nhà.
                   </p>
                 </div>
 
@@ -207,7 +205,7 @@ function Contact() {
               <h2 className="text-[36px] font-medium  text-left ">
                 Gửi tin nhắn!
               </h2>
-              <a href="">Cách nhanh nhất để liên lạc là điện thoại</a>
+              <a href="#!">Cách nhanh nhất để liên lạc là điện thoại</a>
               <p className="flex mt-8 w-full text-[13px]">
                 <label className="w-[140px] mt-2 font-medium">Anh/ Chị *</label>
                 <br />
@@ -290,7 +288,7 @@ function Contact() {
         <div className=" mt-4">
           <h2 className="text-[54px] font-semibold text-center">
             {" "}
-            Bỏ Qua Phòng Chờ!
+            Bỏ Qua Hàng Chờ!
             <br />
             Đăng ký trực tuyến trước khi bạn đến.
           </h2>
@@ -477,14 +475,14 @@ function Contact() {
                   Tải App tại{" "}
                 </h3>
                 <span className="flex mx-16">
-                  <a href="">
+                  <a href="#!">
                     <img
                       src="https://esm.vn/acccommon/scan/images/appstore.png"
                       alt="#"
                       className="w-[120px] "
                     />
                   </a>
-                  <a href="">
+                  <a href="#!">
                     <img
                       src="https://esm.vn/acccommon/scan/images/google.png"
                       alt=""

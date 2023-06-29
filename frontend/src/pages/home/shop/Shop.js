@@ -33,7 +33,7 @@ export const Shop = () => {
       <div className="category-product">
         <div className="row">
           {listTypePhuTung.map((item, index) => (
-            <div className="col-2">
+            <div className="col-sm-6 col-xl-2 ">
               <Link to={`/shop/${item.name}`} onClick={refreshPage}>
                 <CartMini name={item.name} key={index} />
               </Link>
@@ -48,7 +48,7 @@ export const Shop = () => {
       <div className="products-body">
         <div className="row">
           {listProductByType.map((item, index) => (
-            <div className="col-3">
+            <div className="col-xl-3 col-sm-6">
               <Link to={`/shop/product-dt/${item?._id}`}>
                 <ImgMediaCard item={item} key={index} />
               </Link>

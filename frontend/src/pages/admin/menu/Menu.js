@@ -83,14 +83,14 @@ export default function Menu() {
               <ListItemText primary="Loại Phụ Tùng" />
             </ListItemButton>
           </Link>
-          <Link to="/list-products-admin">
+          {/* <Link to="/list-products-admin">
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <DnsIcon />
               </ListItemIcon>
               <ListItemText primary="Sản Phẩm Phụ Tùng" />
             </ListItemButton>
-          </Link>
+          </Link> */}
         </List>
       </Collapse>
       <ListItemButton onClick={() => handleClick("combo")}>

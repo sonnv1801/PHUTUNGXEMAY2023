@@ -124,7 +124,7 @@ const EditComboPage = () => {
   };
 
   const handleSaveChanges = () => {
-    const url = `http://localhost:8000/v1/combo//combos/${path}`;
+    const url = `http://localhost:8000/v1/combo/combos/${path}`;
 
     axios
       .put(url, data)
@@ -141,95 +141,229 @@ const EditComboPage = () => {
     <div className="edit-combo-page">
       <ToastContainer />
       <div className="edit-combo-header">
-        <h1>Sửa Combo</h1>
+        <h1>Chỉnh Sửa Sản Phẩm ComBo</h1>
         <button onClick={handleSaveChanges}>Lưu thay đổi</button>
+        <Link to="/list-products-combos-admin">
+          <button>Thoát</button>
+        </Link>
       </div>
       <div className="edit-combo-content">
         <div className="row">
-          <div className="col-12">
-            <div className="combo-info">
-              <div className="image-container">
-                <label>Hình ảnh</label>
+          <div className="col-6">
+            <h3>Sửa Combo</h3>
+            <div className="combo-info" style={{ marginTop: "2rem" }}>
+              <div className="mb-3">
+                <div className="mb-3">
+                  <span>Hình ảnh Sản Phẩm ComBo</span>
+                  <img
+                    style={{ width: "100px" }}
+                    src={data.image}
+                    alt={data.title}
+                  />
+                </div>
+                <span>Link Hình ảnh Sản Phẩm ComBo</span>
                 <input
+                  className="form-control"
                   type="text"
+                  name="title"
                   value={data.image}
                   onChange={(e) => handleDataChange("image", e.target.value)}
                 />
               </div>
-              <div className="info-container">
-                <div className="input-group">
-                  <label>Số lượng</label>
-                  <input
-                    type="number"
-                    value={data.quantity}
-                    onChange={(e) =>
-                      handleDataChange("quantity", e.target.value)
-                    }
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Tên combo</label>
-                  <input
-                    type="text"
-                    value={data.title}
-                    onChange={(e) => handleDataChange("title", e.target.value)}
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Loại combo</label>
-                  <select
-                    value={data.type}
-                    onChange={(e) => handleDataChange("type", e.target.value)}
-                  >
-                    {listTypeComBos &&
-                      listTypeComBos.map((item, index) => (
-                        <option key={index} value={item.name}>
-                          {item.name}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-                <div className="input-group">
-                  <label>Loại combo</label>
-                  <select
-                    value={data.link}
-                    onChange={(e) => handleDataChange("link", e.target.value)}
-                  >
-                    {listTypeComBos &&
-                      listTypeComBos.map((item, index) => (
-                        <option key={index} value={item.link}>
-                          {item.link}
-                        </option>
-                      ))}
-                  </select>
-                </div>
-                <div className="input-group">
-                  <label>Giá mới</label>
-                  <input
-                    type="number"
-                    value={data.newPrice}
-                    onChange={(e) =>
-                      handleDataChange("newPrice", e.target.value)
-                    }
-                  />
-                </div>
-                <div className="input-group">
-                  <label>Trạng thái</label>
-                  <select
-                    value={data.status}
-                    onChange={(e) => handleDataChange("status", e.target.value)}
-                  >
-                    <option value="Còn Hàng">Còn Hàng</option>
-                    <option value="Hết Hàng">Hết Hàng</option>
-                  </select>
-                </div>
+              <div className="mb-3">
+                <span>Số lượng</span>
+                <input
+                  className="form-control"
+                  type="number"
+                  value={data.quantity}
+                  onChange={(e) => handleDataChange("quantity", e.target.value)}
+                />
               </div>
+              <div className="mb-3">
+                <span>Tên combo</span>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={data.title}
+                  onChange={(e) => handleDataChange("title", e.target.value)}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Loại combo</span>
+                <select
+                  style={{
+                    width: "100%",
+                    margin: "0.5rem 0",
+                    border: "1px solid #ced4da",
+                    outline: "none",
+                    padding: "0.4rem",
+                  }}
+                  value={data.type}
+                  onChange={(e) => handleDataChange("type", e.target.value)}
+                >
+                  {listTypeComBos &&
+                    listTypeComBos.map((item, index) => (
+                      <option key={index} value={item.name}>
+                        {item.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className="mb-3">
+                <span>Link tương ứng với loại combo</span>
+                <br />
+                <select
+                  style={{
+                    width: "100%",
+                    margin: "0.5rem 0",
+                    border: "1px solid #ced4da",
+                    outline: "none",
+                    padding: "0.4rem",
+                  }}
+                  value={data.link}
+                  onChange={(e) => handleDataChange("link", e.target.value)}
+                >
+                  {listTypeComBos &&
+                    listTypeComBos.map((item, index) => (
+                      <option key={index} value={item.link}>
+                        {item.link}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className="mb-3">
+                <span>Trạng thái</span>
+                <select
+                  style={{
+                    width: "100%",
+                    margin: "0.5rem 0",
+                    border: "1px solid #ced4da",
+                    outline: "none",
+                    padding: "0.4rem",
+                  }}
+                  value={data.status}
+                  onChange={(e) => handleDataChange("status", e.target.value)}
+                >
+                  <option value="Còn Hàng">Còn Hàng</option>
+                  <option value="Hết Hàng">Hết Hàng</option>
+                </select>
+              </div>
+              {/* <div className="mb-3">
+                <span>Giá Mới</span>
+                <input
+                  className="form-control"
+                  type="number"
+                  value={data.newPrice}
+                  onChange={(e) => handleDataChange("newPrice", e.target.value)}
+                />
+              </div> */}
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="add-product-combo">
+              <h3>Thêm sản phẩm vào combo</h3>
+              <div className="mb-3">
+                <div className="mb-3">
+                  <span>Hình ảnh Sản Phẩm</span>
+                  <img
+                    style={{ width: "100px" }}
+                    src={newProduct.image}
+                    alt={data.name}
+                  />
+                </div>
+                <span>Link Hình ảnh Sản Phẩm</span>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="image"
+                  value={newProduct.image}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Tên Sản Phẩm</span>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  value={newProduct.name}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Mã sản phẩm</span>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="productCode"
+                  value={newProduct.productCode}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Giá Mới</span>
+                <input
+                  className="form-control"
+                  type="number"
+                  name="price"
+                  value={newProduct.price}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Giá cũ</span>
+                <input
+                  className="form-control"
+                  type="number"
+                  name="oldPrice"
+                  value={newProduct.oldPrice}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              <div className="mb-3">
+                <span>Trạng Thái</span>
+                <select
+                  style={{
+                    width: "100%",
+                    margin: "0.5rem 0",
+                    border: "1px solid #ced4da",
+                    outline: "none",
+                    padding: "0.4rem",
+                  }}
+                  name="status"
+                  value={newProduct.status}
+                  onChange={handleNewProductChange}
+                >
+                  <option value="Còn Hàng">Còn Hàng</option>
+                  <option value="Còn Hàng">Còn Hàng</option>
+                  <option value="Hết Hàng">Hết Hàng</option>
+                </select>
+              </div>
+              <div className="mb-3">
+                <span>Số lượng</span>
+                <input
+                  className="form-control"
+                  type="number"
+                  name="quantity"
+                  value={newProduct.quantity}
+                  onChange={handleNewProductChange}
+                />
+              </div>
+              {newProductError && (
+                <p className="error-message">{newProductError}</p>
+              )}
+              <button
+                style={{ background: "blue", margin: "1rem 0" }}
+                onClick={handleAddProductToCombo}
+              >
+                Thêm vào combo
+              </button>
             </div>
           </div>
 
           <div className="col-12">
             <div className="product-list">
-              <h2>Danh sách sản phẩm</h2>
+              <h2>Danh sách sản phẩm Trong ComBo</h2>
               <div className="product-table">
                 <table>
                   <thead>
@@ -241,7 +375,7 @@ const EditComboPage = () => {
                       <th>Giá cũ</th>
                       <th>Trạng thái</th>
                       <th>Số lượng</th>
-                      <th></th>
+                      {/* <th></th> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -250,6 +384,7 @@ const EditComboPage = () => {
                         <tr key={index}>
                           <td>
                             <input
+                              className="form-control"
                               type="text"
                               value={product.name}
                               onChange={(e) =>
@@ -263,6 +398,7 @@ const EditComboPage = () => {
                           </td>
                           <td>
                             <input
+                              className="form-control"
                               type="text"
                               value={product.productCode}
                               onChange={(e) =>
@@ -274,8 +410,19 @@ const EditComboPage = () => {
                               }
                             />
                           </td>
-                          <td>
+                          <td
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <img
+                              style={{ width: "50px", padding: "0.6rem" }}
+                              src={product.image}
+                              alt={data.name}
+                            />
                             <input
+                              className="form-control"
                               type="text"
                               value={product.image}
                               onChange={(e) =>
@@ -289,6 +436,7 @@ const EditComboPage = () => {
                           </td>
                           <td>
                             <input
+                              className="form-control"
                               type="number"
                               value={product.price}
                               onChange={(e) =>
@@ -302,6 +450,7 @@ const EditComboPage = () => {
                           </td>
                           <td>
                             <input
+                              className="form-control"
                               type="number"
                               value={product.oldPrice}
                               onChange={(e) =>
@@ -315,6 +464,13 @@ const EditComboPage = () => {
                           </td>
                           <td>
                             <select
+                              style={{
+                                width: "100%",
+                                margin: "0.5rem 0",
+                                border: "1px solid #ced4da",
+                                outline: "none",
+                                padding: "0.4rem",
+                              }}
                               value={product.status}
                               onChange={(e) =>
                                 handleProductChange(
@@ -330,6 +486,7 @@ const EditComboPage = () => {
                           </td>
                           <td>
                             <input
+                              className="form-control"
                               type="number"
                               value={product.quantity}
                               onChange={(e) =>
@@ -341,11 +498,14 @@ const EditComboPage = () => {
                               }
                             />
                           </td>
-                          <td>
-                            <button onClick={() => handleDeleteProduct(index)}>
+                          {/* <td>
+                            <button
+                              style={{ background: "red", margin: "1rem 0" }}
+                              onClick={() => handleDeleteProduct(index)}
+                            >
                               Xóa
                             </button>
-                          </td>
+                          </td> */}
                         </tr>
                       ))}
                   </tbody>
@@ -435,80 +595,6 @@ const EditComboPage = () => {
               )}
             </div>
           </div> */}
-          <div className="col-12">
-            <div className="add-product-combo">
-              <h3>Thêm sản phẩm vào combo</h3>
-              <div className="input-group">
-                <label>Tên sản phẩm</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={newProduct.name}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div className="input-group">
-                <label>Mã sản phẩm</label>
-                <input
-                  type="text"
-                  name="productCode"
-                  value={newProduct.productCode}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div className="input-group">
-                <label>Hình ảnh</label>
-                <input
-                  type="text"
-                  name="image"
-                  value={newProduct.image}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div className="input-group">
-                <label>Giá</label>
-                <input
-                  type="number"
-                  name="price"
-                  value={newProduct.price}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div className="input-group">
-                <label>Giá cũ</label>
-                <input
-                  type="number"
-                  name="oldPrice"
-                  value={newProduct.oldPrice}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              <div className="input-group">
-                <label>Trạng thái</label>
-                <select
-                  name="status"
-                  value={newProduct.status}
-                  onChange={handleNewProductChange}
-                >
-                  <option value="Còn Hàng">Còn Hàng</option>
-                  <option value="Hết Hàng">Hết Hàng</option>
-                </select>
-              </div>
-              <div className="input-group">
-                <label>Số lượng</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  value={newProduct.quantity}
-                  onChange={handleNewProductChange}
-                />
-              </div>
-              {newProductError && (
-                <p className="error-message">{newProductError}</p>
-              )}
-              <button onClick={handleAddProductToCombo}>Thêm vào combo</button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
